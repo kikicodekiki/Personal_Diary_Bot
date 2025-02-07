@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="create initial backbone for the project">
-      <change afterPath="$PROJECT_DIR$/horoscope.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/parseDataForHoroscopes.py" afterDir="false" />
+    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Finish API horoscope functionalities!!! *party party*">
+      <change afterPath="$PROJECT_DIR$/testRapidAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,19 +44,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in testRapidAPI.py.executor": "Run",
+    "Python.RapidAPIHoroscope.executor": "Run",
+    "Python.horoscope.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.secondAstrologyAPITest.executor": "Run",
+    "Python.testRapidAPI.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="main" />
@@ -107,7 +112,7 @@
       <workItem from="1738852567295" duration="4703000" />
       <workItem from="1738871739357" duration="108000" />
       <workItem from="1738872301372" duration="2928000" />
-      <workItem from="1738875974592" duration="4425000" />
+      <workItem from="1738875974592" duration="22309000" />
     </task>
     <task id="LOCAL-00001" summary="create initial backbone for the project">
       <option name="closed" value="true" />
@@ -117,7 +122,63 @@
       <option name="project" value="LOCAL" />
       <updated>1738876157777</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="implement part of the horoscope api usage and find ways to parse the data">
+      <option name="closed" value="true" />
+      <created>1738881040425</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738881040425</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix bug but the API is down.. so idk.. wish me luck lol">
+      <option name="closed" value="true" />
+      <created>1738909953381</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1738909953381</updated>
+    </task>
+    <task id="LOCAL-00004" summary="find new API to use.. had to pay :( but it woooorks!!!">
+      <option name="closed" value="true" />
+      <created>1738910388329</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738910388329</updated>
+    </task>
+    <task id="LOCAL-00005" summary="rename the file to use the new API">
+      <option name="closed" value="true" />
+      <created>1738910917600</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738910917600</updated>
+    </task>
+    <task id="LOCAL-00006" summary="implement get horoscope functionality">
+      <option name="closed" value="true" />
+      <created>1738926865814</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738926865814</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implement the compatability functionality (girl, u should really DUMP him, dont blame astrology &lt;33)">
+      <option name="closed" value="true" />
+      <created>1738931230197</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738931230197</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Finish API horoscope functionalities!!! *party party*">
+      <option name="closed" value="true" />
+      <created>1738933116444</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738933116444</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,9 +186,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create initial backbone for the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="create initial backbone for the project" />
+    <MESSAGE value="implement part of the horoscope api usage and find ways to parse the data" />
+    <MESSAGE value="fix bug but the API is down.. so idk.. wish me luck lol" />
+    <MESSAGE value="find new API to use.. had to pay :( but it woooorks!!!" />
+    <MESSAGE value="rename the file to use the new API" />
+    <MESSAGE value="implement get horoscope functionality" />
+    <MESSAGE value="implement the compatability functionality (girl, u should really DUMP him, dont blame astrology &lt;33)" />
+    <MESSAGE value="Finish API horoscope functionalities!!! *party party*" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish API horoscope functionalities!!! *party party*" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/diary_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1738875489273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/diary_bot$secondAstrologyAPITest.coverage" NAME="secondAstrologyAPITest Coverage Results" MODIFIED="1738910780439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$horoscope.coverage" NAME="horoscope Coverage Results" MODIFIED="1738881840420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$RapidAPIHoroscope.coverage" NAME="RapidAPIHoroscope Coverage Results" MODIFIED="1738932967961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$testRapidAPI.coverage" NAME="testRapidAPI Coverage Results" MODIFIED="1738931366585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1738925750273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1738943388448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

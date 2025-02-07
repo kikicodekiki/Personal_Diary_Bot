@@ -7,6 +7,7 @@ headers = {
     'x-rapidapi-host': "horoscope-astrology.p.rapidapi.com"
 }
 
+
 class RapidAPIHoroscope:
     """Wrapper class for the Rapid Horoscope API."""
     signs = [
@@ -52,8 +53,26 @@ class RapidAPIHoroscope:
     def get_compatability_data(self, second_sign):
         if second_sign is not None and second_sign not in self.signs:
             raise ValueError(f"Invalid sign: {second_sign}")
+        try:
+            conn.request("GET", f"/affinity?sign1={self.sign}&sign2={second_sign}", headers=headers)
+            res = conn.getresponse()
+            data = res.read().decode("utf-8")
+            # parse the JSON response
+            parsed_data = json.loads(data)
+            # format the data, because response is a list of dictionaries
+            formatted_text = "\n\n".join([entry["header"] + "\n" + entry["text"] for entry in parsed_data])
+            return formatted_text
+        except Exception as e:
+            print(e)
+            return None
 
+    def get_compatability(self, second_sign):
+        """Returns the edited text that includes the degrees of the two signs and their alignment."""
+        data = self.get_compatability_data(second_sign)
+        if data is None:
+            return "Couldn't retrieve compatability data from Rapid API. But you should DUMP HIM!"
+        return data
 
 
 horoscope = RapidAPIHoroscope(sign = 'virgo')
-print(horoscope.get_horoscope_str())
+print(horoscope.get_compatability(second_sign = 'capricorn'))

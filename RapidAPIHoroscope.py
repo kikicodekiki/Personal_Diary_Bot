@@ -25,8 +25,10 @@ class RapidAPIHoroscope:
         if self.numerology_number is not None and self.numerology_number not in self.numerology_life_paths:
             raise ValueError(f"Invalid life path: {self.numerology_number}")
 
-    def get_daily_horoscope_data(self):
+    def __get_daily_horoscope_data(self):
         """Returns a dict containing the current date, time, horoscope and a lucky number."""
+        if self.sign is None:
+            raise ValueError(f"Invalid sign: {self.sign}")
         try:
             conn.request("GET", f"/horoscope?day=today&sunsign={self.sign}", headers=headers)
             res = conn.getresponse()
@@ -36,21 +38,21 @@ class RapidAPIHoroscope:
             print(e)
             return None
 
-    def get_horoscope_str(self) :
+    def get_horoscope(self) :
         """Returns only the horoscope string."""
-        data = self.get_daily_horoscope_data()
+        data = self.__get_daily_horoscope_data()
         if data is None:
             return "Couldn't retrieve horoscope data from Rapid API. But you will have a great day!"
         return data.get("horoscope", "Horoscope data not available.")
 
     def get_lucky_number(self):
         """Returns the lucky number from the response."""
-        data = self.get_daily_horoscope_data()
+        data = self.__get_daily_horoscope_data()
         if data is None:
             return "Couldn't retrieve horoscope data from Rapid API. But you will have a great day!"
         return data.get("lucky_number", "Lucky number not available.")
 
-    def get_compatability_data(self, second_sign):
+    def __get_compatability_data(self, second_sign):
         if second_sign is not None and second_sign not in self.signs:
             raise ValueError(f"Invalid sign: {second_sign}")
         try:
@@ -68,11 +70,27 @@ class RapidAPIHoroscope:
 
     def get_compatability(self, second_sign):
         """Returns the edited text that includes the degrees of the two signs and their alignment."""
-        data = self.get_compatability_data(second_sign)
+        data = self.__get_compatability_data(second_sign)
         if data is None:
             return "Couldn't retrieve compatability data from Rapid API. But you should DUMP HIM!"
         return data
 
+    def __get_numerology_data(self):
+        """Returns the description based on the numerology life path number."""
+        if self.numerology_number is None:
+            raise ValueError(f"Invalid sign: {self.sign}")
+        try:
+            conn.request("GET", f"/numerology?n={self.numerology_number}", headers=headers)
+            res = conn.getresponse()
+            data = res.read().decode("utf-8")
+            return json.loads(data)
+        except Exception as e:
+            print(e)
+            return None
 
-horoscope = RapidAPIHoroscope(sign = 'virgo')
-print(horoscope.get_compatability(second_sign = 'capricorn'))
+    def get_numerology(self):
+        data = self.__get_numerology_data()
+        if data is None:
+            return "Couldn't retrieve numerology data from Rapid API. But you are a QUEEN!"
+        return data.get("desc", "Numerology data not available.")
+

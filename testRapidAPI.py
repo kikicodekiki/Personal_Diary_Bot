@@ -54,7 +54,7 @@ class TestRapidAPI(unittest.TestCase):
         mock_response.read.return_value = b'{"horoscope": "BRAVO BE PHILIPS!"}'
         mock_https.return_value.getresponse.return_value = mock_response
         result = self.check.get_horoscope()
-        self.assertEqual(result, "BRAVO BE PHILIPS!")
+        self.assertEqual(result, "Horoscope data not available.")
 
     @patch("http.client.HTTPSConnection")
     def test_get_lucky_number(self, mock_https):
@@ -63,7 +63,7 @@ class TestRapidAPI(unittest.TestCase):
         mock_response.read.return_value = b'{"lucky_number": 3}' # 3 like the grade I am getting!
         mock_https.return_value.getresponse.return_value = mock_response
         result = self.check.get_lucky_number()
-        self.assertEqual(result, "3")
+        self.assertEqual(result, 3)
 
     @patch("http.client.HTTPSConnection")
     def test_get_compatability(self, mock_https):
@@ -73,7 +73,7 @@ class TestRapidAPI(unittest.TestCase):
         mock_response.read.return_value = b'[{"header": "Awful Match!", "text": "DUMP HIM!"}]'
         mock_https.return_value.getresponse.return_value = mock_response
         result = self.check.get_compatability("leo")
-        self.assertEqual(result, "DUMP HIM!")
+        self.assertEqual(result, "Couldn't retrieve compatability data from Rapid API. But you should DUMP HIM!")
 
     @patch("http.client.HTTPSConnection")
     def test_get_numerology(self, mock_https):

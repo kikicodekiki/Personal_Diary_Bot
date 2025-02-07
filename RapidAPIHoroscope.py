@@ -7,7 +7,7 @@ headers = {
     'x-rapidapi-host': "horoscope-astrology.p.rapidapi.com"
 }
 
-conn.request("GET", "/horoscope?day=today&sunsign=libra", headers=headers)
+conn.request("GET", "/horoscope?day=today&sunsign=virgo", headers=headers)
 
 res = conn.getresponse()
 data = res.read()

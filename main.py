@@ -68,14 +68,37 @@ class TelegramBot:
             self.ask_numerology_number(message)
 
     def ask_compatability_sign(self, message, zodiac_sign):
-        pass
+        """Fetch the other person's sign."""
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        for sign in RapidAPIHoroscope.signs:
+            markup.add(types.KeyboardButton(text = sign))
+        self.bot.send_message(message.chat.id, "Please, select your zodiac sign: ", reply_markup=markup)
+        self.bot.register_next_step_handler(message, self.fetch_compatability_sign, zodiac_sign)
+
+    def fetch_compatability_sign(self, message, zodiac_sign):
+        """Get the needed information through the instance."""
+        second_sign = message.text.lower()
+        instance = RapidAPIHoroscope(sign=zodiac_sign)
+        compatability = instance.get_compatability(second_sign)
+        self.bot.send_message(message.chat.id, f"Your compatability for {second_sign}:\n{compatability}")
 
     def ask_numerology_number(self, message):
-        pass
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        for i in range(1, 10):
+            markup.add(types.KeyboardButton(text = str(i)))
+        self.bot.send_message(message.chat.id, """Please select your life path number: \n 
+                                                You can find it by adding up all of the digits from your birth date.""")
+        self.bot.register_next_step_handler(message, self.fetch_numerology)
+
+    def fetch_numerology(self, message):
+        """Gets the life path number and displays the info about it."""
+        numerology_number = int(message.text)
+        instance = RapidAPIHoroscope(numerology_number=numerology_number)
+        numerology = instance.get_numerology()
+        self.bot.send_message(message.chat.id, f"Your life path reading:\n\n {numerology}")
 
     def log_mood(self, message):
         pass
 
     def log_period(self, message):
         pass
-

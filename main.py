@@ -1,46 +1,45 @@
 import telebot
 from telebot import types
+from RapidAPIHoroscope import RapidAPIHoroscope
+from Database import Database
 
-bot = telebot.TeleBot(token='<KEY>')
+class TelegramBot:
+    """Wrapper class for the Telegram Bot itself."""
+    def __init__(self, token):
+        self.bot = telebot.TeleBot(token)
+        self.db = Database()
+        self.register_handlers()
 
-"""Integrate the 'start' function which gets the bot running."""
-@bot.message_handler(commands=['start'])
-def start(message):
-    """Create the buttons that will link up to the different functionalities of the bot."""
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    HoroscopeButton = types.KeyboardButton(text="Get Horocope")
-    markup.add(HoroscopeButton)
-    MoodTrackerButton = types.KeyboardButton(text="Mood Tracker")
-    PeriodTrackerButton = types.KeyboardButton(text="Period Tracker")
-    markup.add(MoodTrackerButton, PeriodTrackerButton)
+    def register_handlers(self):
+        @self.bot.message_handler(commands=['start'])
+        def start(message):
+            """Implement the start command."""
+            self.db.add_user(message.from_user.username)
+            # generates the custom keyboard
+            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+            markup.add(types.KeyboardButton(text='Get Horoscope'))
+            markup.add(types.KeyboardButton(text='Mood Tracker'))
+            markup.add(types.KeyboardButton(text='Period Tracker'))
+            self.bot.send_message(message.chat.id,
+                                  f"Hello {message.from_user.username}!",
+                                  reply_markup=markup)
 
-    """Send the initial message."""
-    to_send = """, and welcome to my Python project for the Introduction to programming with Python course. 
-    \nThis bot is designed to represent a personal diary for women. 
-    \nIt provides real-time insights into the Astrological realm, analyzing data from planetary positions,
-     as well as tracking your period and your mood.
+        @self.bot.message_handler(func = lambda message: True)
+        def handle_commands(message):
+            """Register all possible commands."""
+            if message.text == 'Get Horoscope':
+                self.ask_zodiac(message)
+            if message.text == 'Mood Tracker':
+                self.log_mood(message)
+            if message.text == 'Period Tracker':
+                self.log_period(message)
 
-        <b>Features:</b> """
-    bot.send_message(message.chat.id, f"<b>Hello, dear {message.from_user.first_name}</b>" + to_send,
-                     parse_mode='html', reply_markup=markup)
-
-    """Register the next steps after clicking on a given button."""
-    bot.register_next_step_handler(message, on_click)
-
-def on_click(message):
-    if message.text == "Get Horocope":
-        # give different options depending on the zodiac sign
+    def ask_zodiac(self, message):
         pass
-    elif message.text == "Get MoodTracker":
-        # give different options: log in mood, check progress
-        pass
-    elif message.text == "Get PeriodTracker":
-        # give different options: log in period, check progress
+
+    def log_mood(self, message):
         pass
 
+    def log_period(self, message):
+        pass
 
-
-
-
-"""Make the bot run constantly."""
-bot.polling(none_stop=True)

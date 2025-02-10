@@ -40,7 +40,7 @@ class TelegramBot:
         for sign in RapidAPIHoroscope.signs:
             markup.add(types.KeyboardButton(text = sign))
         self.bot.send_message(message.chat.id, "Please, select your zodiac sign: ", reply_markup=markup)
-        self.bot.register_next_step_handler(message.chat.id, self.choose_horoscope_command)
+        self.bot.register_next_step_handler(message, self.choose_horoscope_command)
 
     def choose_horoscope_command(self, message):
         """Showcases the different functionalities, related to astrology, that the bot supports."""
@@ -103,3 +103,9 @@ class TelegramBot:
     def log_period(self, message):
         pass
 
+    def run(self):
+        self.bot.polling(none_stop=True)
+
+if __name__ == '__main__':
+    bot = TelegramBot(token="<KEY>")
+    bot.run()

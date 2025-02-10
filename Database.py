@@ -11,15 +11,16 @@ class Database:
         self.create_table()
 
     def create_table(self):
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS users(
-                            id INTEGER PRIMARY KEY AUTOINCREMENT,
-                            username TEXT NOT NULL,
-                            zodiac_sign TEXT,
-                            period_start DATE,
-                            period_end DATE,
-                            mood TEXT,
-                            )
-                            ''')
+        self.cursor.execute('''
+                    CREATE TABLE IF NOT EXISTS users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT UNIQUE,
+                        zodiac_sign TEXT,
+                        period_start DATE,
+                        period_end DATE,
+                        mood TEXT
+                    )
+                ''')
         self.connection.commit()
 
     def add_user(self, username):

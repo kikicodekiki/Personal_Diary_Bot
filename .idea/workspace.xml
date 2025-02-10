@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Finish API horoscope functionalities!!! *party party*">
-      <change afterPath="$PROJECT_DIR$/testRapidAPI.py" afterDir="false" />
+    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="finish implementing the different astrology commands. Still contemplating the command pattern..">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RapidAPIHoroscope.py" beforeDir="false" afterPath="$PROJECT_DIR$/RapidAPIHoroscope.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,18 +25,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "kikicodekiki"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kikicodekiki&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/kikicodekiki/Personal_Diary_Bot",
-    "accountId": "9754915d-5b83-4f37-94f9-6961dc497e95"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kikicodekiki/Personal_Diary_Bot&quot;,
+    &quot;accountId&quot;: &quot;9754915d-5b83-4f37-94f9-6961dc497e95&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.venv/lib/python3.9/site-packages/telebot/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/.venv/lib/python3.9/site-packages/urllib3/__init__.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -44,24 +50,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests in testRapidAPI.py.executor": "Run",
-    "Python.RapidAPIHoroscope.executor": "Run",
-    "Python.horoscope.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.secondAstrologyAPITest.executor": "Run",
-    "Python.testRapidAPI.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests in testRapidAPI.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RapidAPIHoroscope.executor&quot;: &quot;Run&quot;,
+    &quot;Python.horoscope.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.secondAstrologyAPITest.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testRapidAPI.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="main" />
@@ -112,7 +118,9 @@
       <workItem from="1738852567295" duration="4703000" />
       <workItem from="1738871739357" duration="108000" />
       <workItem from="1738872301372" duration="2928000" />
-      <workItem from="1738875974592" duration="22309000" />
+      <workItem from="1738875974592" duration="34451000" />
+      <workItem from="1739143528638" duration="490000" />
+      <workItem from="1739189827250" duration="1007000" />
     </task>
     <task id="LOCAL-00001" summary="create initial backbone for the project">
       <option name="closed" value="true" />
@@ -178,7 +186,55 @@
       <option name="project" value="LOCAL" />
       <updated>1738933116444</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="lmao i hadnt thought of the fact that the warning text needs to match the one in the implementation.. but here it is because its funny. BRAVO BE , PHILIPS!!!">
+      <option name="closed" value="true" />
+      <created>1738943667731</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1738943667731</updated>
+    </task>
+    <task id="LOCAL-00010" summary="5/7 test cases passed.. gotta look into that">
+      <option name="closed" value="true" />
+      <created>1738944858007</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1738944858007</updated>
+    </task>
+    <task id="LOCAL-00011" summary="create a database class that wraps its functionalities and handles the data operations and manipulations">
+      <option name="closed" value="true" />
+      <created>1739138730030</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739138730030</updated>
+    </task>
+    <task id="LOCAL-00012" summary="create a wrapper class for the TeleBot">
+      <option name="closed" value="true" />
+      <created>1739139660412</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739139660412</updated>
+    </task>
+    <task id="LOCAL-00013" summary="start implementing the different astrology commands. Maybe I should implement it with the command pattern later on...">
+      <option name="closed" value="true" />
+      <created>1739141781195</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1739141781195</updated>
+    </task>
+    <task id="LOCAL-00014" summary="finish implementing the different astrology commands. Still contemplating the command pattern..">
+      <option name="closed" value="true" />
+      <created>1739143142197</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739143142197</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,14 +249,20 @@
     <MESSAGE value="implement get horoscope functionality" />
     <MESSAGE value="implement the compatability functionality (girl, u should really DUMP him, dont blame astrology &lt;33)" />
     <MESSAGE value="Finish API horoscope functionalities!!! *party party*" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish API horoscope functionalities!!! *party party*" />
+    <MESSAGE value="lmao i hadnt thought of the fact that the warning text needs to match the one in the implementation.. but here it is because its funny. BRAVO BE , PHILIPS!!!" />
+    <MESSAGE value="5/7 test cases passed.. gotta look into that" />
+    <MESSAGE value="create a database class that wraps its functionalities and handles the data operations and manipulations" />
+    <MESSAGE value="create a wrapper class for the TeleBot" />
+    <MESSAGE value="start implementing the different astrology commands. Maybe I should implement it with the command pattern later on..." />
+    <MESSAGE value="finish implementing the different astrology commands. Still contemplating the command pattern.." />
+    <option name="LAST_COMMIT_MESSAGE" value="finish implementing the different astrology commands. Still contemplating the command pattern.." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/diary_bot$secondAstrologyAPITest.coverage" NAME="secondAstrologyAPITest Coverage Results" MODIFIED="1738910780439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$horoscope.coverage" NAME="horoscope Coverage Results" MODIFIED="1738881840420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$RapidAPIHoroscope.coverage" NAME="RapidAPIHoroscope Coverage Results" MODIFIED="1738932967961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$testRapidAPI.coverage" NAME="testRapidAPI Coverage Results" MODIFIED="1738931366585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/diary_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1738925750273" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1738943388448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1738944748072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1739190675701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

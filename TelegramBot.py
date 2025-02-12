@@ -48,6 +48,6 @@ class TelegramBot:
         self.bot.polling(none_stop=True)
 
 
-instance = TelegramBot("<MY_KEy>")
+instance = TelegramBot("KEY")
 instance.run()
 

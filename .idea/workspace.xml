@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Fix some bugs to make the daily horoscope work but find another bug in the numerology implementation">
+    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="add a go back button but the compatability and numerology functionalities still do not work properly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RapidAPIHoroscope.py" beforeDir="false" afterPath="$PROJECT_DIR$/RapidAPIHoroscope.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelegramBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramBot.py" afterDir="false" />
@@ -56,27 +56,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests in testRapidAPI.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.HoroscopeCommand.executor&quot;: &quot;Run&quot;,
-    &quot;Python.RapidAPIHoroscope.executor&quot;: &quot;Run&quot;,
-    &quot;Python.TelegramBot.executor&quot;: &quot;Run&quot;,
-    &quot;Python.horoscope.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.secondAstrologyAPITest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testRapidAPI.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in testRapidAPI.py.executor": "Run",
+    "Python.GetCompatabilityCommand.executor": "Run",
+    "Python.HoroscopeCommand.executor": "Run",
+    "Python.RapidAPIHoroscope.executor": "Run",
+    "Python.TelegramBot.executor": "Run",
+    "Python.horoscope.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.secondAstrologyAPITest.executor": "Run",
+    "Python.testRapidAPI.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="main" />
@@ -133,7 +134,8 @@
       <workItem from="1739191227374" duration="553000" />
       <workItem from="1739280062051" duration="78000" />
       <workItem from="1739302924347" duration="5290000" />
-      <workItem from="1739337946988" duration="9228000" />
+      <workItem from="1739337946988" duration="9418000" />
+      <workItem from="1739378364109" duration="2791000" />
     </task>
     <task id="LOCAL-00001" summary="create initial backbone for the project">
       <option name="closed" value="true" />
@@ -295,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739343974705</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add a go back button but the compatability and numerology functionalities still do not work properly">
+      <option name="closed" value="true" />
+      <created>1739352324895</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1739352324895</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,15 +331,17 @@
     <MESSAGE value="Have a new AstrologyCommand class that handles the retrieval of the zodiac sign and then propagates it to the astrology functionalities" />
     <MESSAGE value="Implement the other commands from the astrological part of the command design pattern" />
     <MESSAGE value="Fix some bugs to make the daily horoscope work but find another bug in the numerology implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some bugs to make the daily horoscope work but find another bug in the numerology implementation" />
+    <MESSAGE value="add a go back button but the compatability and numerology functionalities still do not work properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a go back button but the compatability and numerology functionalities still do not work properly" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/diary_bot$HoroscopeCommand.coverage" NAME="HoroscopeCommand Coverage Results" MODIFIED="1739307687767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />
     <SUITE FILE_PATH="coverage/diary_bot$secondAstrologyAPITest.coverage" NAME="secondAstrologyAPITest Coverage Results" MODIFIED="1738910780439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$horoscope.coverage" NAME="horoscope Coverage Results" MODIFIED="1738881840420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$RapidAPIHoroscope.coverage" NAME="RapidAPIHoroscope Coverage Results" MODIFIED="1738932967961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/diary_bot$TelegramBot.coverage" NAME="TelegramBot Coverage Results" MODIFIED="1739352174317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$TelegramBot.coverage" NAME="TelegramBot Coverage Results" MODIFIED="1739382385565" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$testRapidAPI.coverage" NAME="testRapidAPI Coverage Results" MODIFIED="1738931366585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$GetCompatabilityCommand.coverage" NAME="GetCompatabilityCommand Coverage Results" MODIFIED="1739382027318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />
     <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1738944748072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1739352167478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>

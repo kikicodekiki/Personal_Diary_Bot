@@ -1,9 +1,9 @@
 from telebot import types
 from commands.base import Command
 from RapidAPIHoroscope import RapidAPIHoroscope
-from GetNumerologyCommand import GetNumerologyCommand
-from GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
-from GetCompatabilityCommand import GetCompatabilityCommand
+from commands.GetNumerologyCommand import GetNumerologyCommand
+from commands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
+from commands.GetCompatabilityCommand import GetCompatabilityCommand
 
 class AstrologyCommand(Command):
     """Handles the retrieval of the zodiac sign and delegates to the other command classes."""

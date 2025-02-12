@@ -2,7 +2,6 @@ from commands.base import Command
 from telebot import types
 from RapidAPIHoroscope import RapidAPIHoroscope
 
-
 class GetCompatabilityCommand(Command):
     """Handles the fetching of the compatability data."""
     def execute(self, bot, db, message, zodiac_sign):
@@ -17,12 +16,13 @@ class GetCompatabilityCommand(Command):
     def get_compatibility(self, message, bot, db, zodiac_sign):
         """Retrieves and sends the compatability data."""
         if message.text == "Go Back":
-            return bot.send_message(message.chat.id, "Returning..", reply_markup=self.return_to_main_menu())
+            from commands.AstrologyCommand import AstrologyCommand
+            return AstrologyCommand().execute(bot, db, message) # Go back to Astrology menu
         second_sign = message.text.lower()
         instance = RapidAPIHoroscope(sign=zodiac_sign)
         compatability = instance.get_compatability(second_sign)
         bot.send_message(message.chat.id, compatability)
-        self.return_to_main_menu(bot, message)
+        # self.return_to_main_menu(bot, message)
 
     def return_to_main_menu(self, bot, message):
         """Returns the user to the main menu."""

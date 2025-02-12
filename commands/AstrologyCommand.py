@@ -20,8 +20,7 @@ class AstrologyCommand(Command):
     def save_zodiac(self, message, bot, db):
         """Saves the zodiac sign and prompts the user to choose an astrology feature."""
         if message.text == "Go Back":
-            bot.send_message(message.chat.id, "Returning to main menu...")
-            return bot.send_message(message.chat.id, "Welcome back!", reply_markup=self.get_main_menu())
+            return self.execute(bot, db, message) # instead of returning to the main menu
         zodiac_sign = message.text.lower()
         user = message.from_user.first_name
         db.update_user(user, "zodiac_sign", zodiac_sign) # updates the database

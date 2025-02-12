@@ -1,5 +1,5 @@
 import sqlite3
-
+from datetime import datetime # using for the menstrual cycle logs
 
 class Database:
     """A class that handles the Database operations and table."""
@@ -65,5 +65,29 @@ class Database:
             except sqlite3.Error as e:
                 print(f"Database error: {e}")
 
-    # def close(self):
-    #     self.connection.close() => no need for this function anymore since we are working with context managers
+    def log_period(self, user_id, start_date):
+        """Create a historical record of the logs for each user."""
+        with sqlite3.connect(self.database_name) as conn:
+            cursor = conn.cursor()
+            try:
+                cursor.execute(
+                    "INSERT INTO menstrual_logs (user_id, start_date) VALUES(?, ?)",
+                    (user_id, start_date)
+                )
+                conn.commit()
+            except sqlite3.Error as e:
+                print(f"Database error: {e}")
+
+    def get_period_history_for_user(self, user_id):
+        """Fetches the start days of each logged cycle and calculates their length."""
+        """Converting the string dates into python datetime objects."""
+        with sqlite3.connect(self.database_name) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT start_date FROM menstrual_logs WHERE user_id=? ORDER BY start_date ASC",
+                (user_id, ),
+            )
+            data = cursor.fetchall()
+        dates = [datetime.strptime(row[0], '%Y-%m-%d') for row in data]
+        cycle_lengths = [(dates[i] - dates[i-1]).days for i in range(1, len(dates))]
+        return cycle_lengths

@@ -1,9 +1,9 @@
 from telebot import types
 from commands.base import Command
 from RapidAPIHoroscope import RapidAPIHoroscope
-from commands.GetNumerologyCommand import GetNumerologyCommand
-from commands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
-from commands.GetCompatibilityCommand import GetCompatibilityCommand
+from commands.AstrologyCommands.GetNumerologyCommand import GetNumerologyCommand
+from commands.AstrologyCommands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
+from commands.AstrologyCommands.GetCompatibilityCommand import GetCompatibilityCommand
 
 class AstrologyCommand(Command):
     """Handles the retrieval of the zodiac sign and delegates to the other command classes."""
@@ -37,6 +37,7 @@ class AstrologyCommand(Command):
         """Returns the main menu."""
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(types.KeyboardButton(text="Get Astrology Reading")) # add all functionalities from the main function
+        markup.add(types.KeyboardButton(text="Menstrual Cycle Stats"))
         return markup
 
     def delegate_command(self, message, bot, db, zodiac_sign):

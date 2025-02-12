@@ -21,10 +21,7 @@ class TelegramBot:
         def start(message):
             """Implements the start command."""
             self.db.add_user(message.from_user.first_name) # add the user to the database
-            markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-            for command in self.commands.keys():
-                markup.add(types.KeyboardButton(text=command))
-            (self.bot.send_message(message.chat.id, f"Hello {message.from_user.first_name}!", reply_markup=markup))
+            self.show_main_menu(message)
 
         @self.bot.message_handler(func=lambda message: message.text in self.commands)
         def handle_commands(message):
@@ -33,10 +30,24 @@ class TelegramBot:
             if command:
                 command.execute(self.bot, self.db, message)
 
+        @self.bot.message_handler(func=lambda message: message.text == "Go Back")
+        def handle_go_back(message):
+            """Handles the 'Go Back' command.'"""
+            self.show_main_menu(message)
+
+    def show_main_menu(self, message):
+        """Displays the main menu with buttons."""
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        for command in self.commands.keys():
+            markup.add(types.KeyboardButton(text=command))
+        self.bot.send_message(message.chat.id, f"Hello, {message.from_user.first_name}! Choose an option: ",
+                              reply_markup=markup)
+
+
     def run(self):
         self.bot.polling(none_stop=True)
 
 
-instance = TelegramBot("MY_KEY")
+instance = TelegramBot("KEY")
 instance.run()
 

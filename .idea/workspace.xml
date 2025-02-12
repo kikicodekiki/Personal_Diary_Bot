@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Start implementing the Command Design Pattern to ensure good OOP design and better encapsulation bcz the TelegramBot class was managing too many things that he shouldn't be caring about.">
-      <change afterPath="$PROJECT_DIR$/commands/GetCompatabilityCommand.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commands/GetDailyHoroscopeCommand.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commands/GetNumerologyCommand.py" afterDir="false" />
+    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Have a new AstrologyCommand class that handles the retrieval of the zodiac sign and then propagates it to the astrology functionalities">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RapidAPIHoroscope.py" beforeDir="false" afterPath="$PROJECT_DIR$/RapidAPIHoroscope.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TelegramBot.py" beforeDir="false" afterPath="$PROJECT_DIR$/TelegramBot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/HoroscopeCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/AstrologyCommand.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/AstrologyCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/AstrologyCommand.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/GetCompatabilityCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/GetCompatabilityCommand.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/GetDailyHoroscopeCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/GetDailyHoroscopeCommand.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/GetNumerologyCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/GetNumerologyCommand.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +44,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.venv/lib/python3.9/site-packages/telebot/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.venv/lib/python3.9/site-packages/urllib3/__init__.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -131,7 +134,7 @@
       <workItem from="1739191227374" duration="553000" />
       <workItem from="1739280062051" duration="78000" />
       <workItem from="1739302924347" duration="5290000" />
-      <workItem from="1739337946988" duration="1872000" />
+      <workItem from="1739337946988" duration="3722000" />
     </task>
     <task id="LOCAL-00001" summary="create initial backbone for the project">
       <option name="closed" value="true" />
@@ -261,7 +264,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739309971083</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Have a new AstrologyCommand class that handles the retrieval of the zodiac sign and then propagates it to the astrology functionalities">
+      <option name="closed" value="true" />
+      <created>1739339917362</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739339917362</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +295,8 @@
     <MESSAGE value="finish implementing the different astrology commands. Still contemplating the command pattern.." />
     <MESSAGE value="Fix bug and get the program going!!! Hurray!!! I LIKE TO MOVE IT, MOVE IT!!!" />
     <MESSAGE value="Start implementing the Command Design Pattern to ensure good OOP design and better encapsulation bcz the TelegramBot class was managing too many things that he shouldn't be caring about." />
-    <option name="LAST_COMMIT_MESSAGE" value="Start implementing the Command Design Pattern to ensure good OOP design and better encapsulation bcz the TelegramBot class was managing too many things that he shouldn't be caring about." />
+    <MESSAGE value="Have a new AstrologyCommand class that handles the retrieval of the zodiac sign and then propagates it to the astrology functionalities" />
+    <option name="LAST_COMMIT_MESSAGE" value="Have a new AstrologyCommand class that handles the retrieval of the zodiac sign and then propagates it to the astrology functionalities" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/diary_bot$HoroscopeCommand.coverage" NAME="HoroscopeCommand Coverage Results" MODIFIED="1739307687767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />

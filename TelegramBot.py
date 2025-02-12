@@ -1,7 +1,8 @@
 import telebot
 from telebot import types
 from Database import Database
-from commands.HoroscopeCommand import HoroscopeCommand
+from commands.AstrologyCommand import AstrologyCommand
+
 
 class TelegramBot:
     """""Wrapper class for the Telegram Bot interactions and delegates tasks to commands."""
@@ -11,7 +12,7 @@ class TelegramBot:
         # Command registry
         self.commands = {
             # got this idea from my dear friend, the chat bot, still have yet to implement other commands
-            'Get Horoscope': HoroscopeCommand(), # store instances of the command
+            "Get Astrology Reading": AstrologyCommand(), # store instances of the command
         }
         self.register_handlers()
 
@@ -19,11 +20,11 @@ class TelegramBot:
         @self.bot.message_handler(commands=['start'])
         def start(message):
             """Implements the start command."""
-            self.db.add_user(message.from_user.username) # add the user to the database
+            self.db.add_user(message.from_user.first_name) # add the user to the database
             markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
             for command in self.commands.keys():
                 markup.add(types.KeyboardButton(text=command))
-            (self.bot.send_message(message.chat.id, f"Hello {message.from_user.username}!", reply_markup=markup))
+            (self.bot.send_message(message.chat.id, f"Hello {message.from_user.first_name}!", reply_markup=markup))
 
         @self.bot.message_handler(func=lambda message: message.text in self.commands)
         def handle_commands(message):
@@ -36,6 +37,6 @@ class TelegramBot:
         self.bot.polling(none_stop=True)
 
 
-instance = TelegramBot("<MY-KEY>")
+instance = TelegramBot("MY_KEY")
 instance.run()
 

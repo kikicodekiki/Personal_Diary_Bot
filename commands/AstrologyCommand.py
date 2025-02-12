@@ -13,11 +13,15 @@ class AstrologyCommand(Command):
         # display each zodiac sign so that the user can choose theirs
         for sign in RapidAPIHoroscope.signs:
             markup.add(types.KeyboardButton(text=sign))
+        markup.add(types.KeyboardButton(text="Go Back")) # add a Go Back button
         bot.send_message(message.chat.id, "Please, select your zodiac sign: ", reply_markup=markup)
         bot.register_next_step_handler(message, self.save_zodiac, bot, db)
 
     def save_zodiac(self, message, bot, db):
         """Saves the zodiac sign and prompts the user to choose an astrology feature."""
+        if message.text == "Go Back":
+            bot.send_message(message.chat.id, "Returning to main menu...")
+            return bot.send_message(message.chat.id, "Welcome back!", reply_markup=self.get_main_menu())
         zodiac_sign = message.text.lower()
         user = message.from_user.first_name
         db.update_user(user, "zodiac_sign", zodiac_sign) # updates the database
@@ -26,11 +30,20 @@ class AstrologyCommand(Command):
         markup.add(types.KeyboardButton(text="Get Horoscope for Today"))
         markup.add(types.KeyboardButton(text="Check Compatability"),
                    types.KeyboardButton(text="Numerology Reading"))
+        markup.add(types.KeyboardButton(text="Go Back")) # insert a go back button
         bot.send_message(message.chat.id, "Please, choose a command:", reply_markup=markup)
         bot.register_next_step_handler(message, self.delegate_command, bot, db, zodiac_sign)
 
+    def get_main_menu(self):
+        """Returns the main menu."""
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        markup.add(types.KeyboardButton(text="Get Astrology Reading")) # add all functionalities from the main function
+        return markup
+
     def delegate_command(self, message, bot, db, zodiac_sign):
         """Delegates the request to the appropriate command."""
+        if message.text == "Go Back":
+            return self.execute(bot, db, message)
         commands = {
             "Get Horoscope for Today": GetDailyHoroscopeCommand(),
             "Check Compatibility": GetCompatabilityCommand(),

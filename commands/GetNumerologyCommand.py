@@ -20,7 +20,7 @@ class GetNumerologyCommand(Command):
     def get_numerology(self, message, bot, db):
         """Fetches and sends the numerology results."""
         if message.text == "Go Back":
-            from commands.AstrologyCommand import AstrologyCommand
+            from commands.AstrologyCommand import AstrologyCommand # use lazy imports to prevent circular import
             return AstrologyCommand().execute(bot, db, message)
         if not message.text.isdigit():
             bot.send_message(message.chat.id, "Invalid input. Please try again.")

@@ -3,7 +3,7 @@ from commands.base import Command
 from RapidAPIHoroscope import RapidAPIHoroscope
 from commands.GetNumerologyCommand import GetNumerologyCommand
 from commands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
-from commands.GetCompatabilityCommand import GetCompatabilityCommand
+from commands.GetCompatabilityCommand import GetCompatibilityCommand
 
 class AstrologyCommand(Command):
     """Handles the retrieval of the zodiac sign and delegates to the other command classes."""
@@ -27,11 +27,11 @@ class AstrologyCommand(Command):
         # display the next functionalities
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add(types.KeyboardButton(text="Get Horoscope for Today"))
-        markup.add(types.KeyboardButton(text="Check Compatability"),
+        markup.add(types.KeyboardButton(text="Check Compatibility"),
                    types.KeyboardButton(text="Numerology Reading"))
         markup.add(types.KeyboardButton(text="Go Back")) # insert a go back button
         bot.send_message(message.chat.id, "Please, choose a command:", reply_markup=markup)
-        bot.register_next_step_handler(message, self.delegate_command, bot, db, zodiac_sign)
+        bot.register_next_step_handler(message, lambda msg: self.delegate_command(msg, bot, db, zodiac_sign))
 
     def get_main_menu(self):
         """Returns the main menu."""
@@ -45,7 +45,7 @@ class AstrologyCommand(Command):
             return self.execute(bot, db, message)
         commands = {
             "Get Horoscope for Today": GetDailyHoroscopeCommand(),
-            "Check Compatibility": GetCompatabilityCommand(),
+            "Check Compatibility": GetCompatibilityCommand(),
             "Numerology Reading": GetNumerologyCommand(),
         }
         command = commands.get(message.text)

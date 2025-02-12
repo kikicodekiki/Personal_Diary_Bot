@@ -3,7 +3,7 @@ from commands.base import Command
 from RapidAPIHoroscope import RapidAPIHoroscope
 from commands.GetNumerologyCommand import GetNumerologyCommand
 from commands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
-from commands.GetCompatabilityCommand import GetCompatibilityCommand
+from commands.GetCompatibilityCommand import GetCompatibilityCommand
 
 class AstrologyCommand(Command):
     """Handles the retrieval of the zodiac sign and delegates to the other command classes."""

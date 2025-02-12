@@ -38,4 +38,4 @@ class AstrologyCommand(Command):
         }
         command = commands.get(message.text)
         if command:
-            command.execute(bot, db, zodiac_sign)
+            command.execute(bot, db, message, zodiac_sign)

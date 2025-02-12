@@ -8,6 +8,6 @@ class GetDailyHoroscopeCommand(Command):
 
     def execute(self, bot, db, message, zodiac_sign):
         """Fetches the daily horoscope."""
-        instance = RapidAPIHoroscope(zodiac_sign)
+        instance = RapidAPIHoroscope(sign=zodiac_sign)
         horoscope = instance.get_horoscope()
         bot.send_message(message.chat.id, f"Your horoscope for today:\n\n{horoscope}")

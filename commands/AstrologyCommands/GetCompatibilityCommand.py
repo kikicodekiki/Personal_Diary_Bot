@@ -16,7 +16,7 @@ class GetCompatibilityCommand(Command):
     def get_compatibility(self, message, bot, db, zodiac_sign):
         """Retrieves and sends the compatability data."""
         if message.text == "Go Back":
-            from commands.AstrologyCommand import AstrologyCommand
+            from commands.AstrologyCommands.AstrologyCommand import AstrologyCommand
             return AstrologyCommand().execute(bot, db, message) # Go back to Astrology menu
         second_sign = message.text.lower()
         instance = RapidAPIHoroscope(sign=zodiac_sign)
@@ -32,4 +32,5 @@ class GetCompatibilityCommand(Command):
         """Returns the user to the main menu."""
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
         markup.add(types.KeyboardButton(text="Get Astrology Reading"))
+        markup.add(types.KeyboardButton(text="Menstrual Cycle Stats")) # include the menstrual cycle button
         bot.send_message(message.chat.id,"Would you like to do something else?", reply_markup=markup)

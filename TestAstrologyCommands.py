@@ -2,13 +2,12 @@ import unittest
 from unittest import TestCase
 from unittest.mock import MagicMock
 from telebot import TeleBot
-from telebot.types import InlineKeyboardMarkup
 
 from Database import Database
-from commands.AstrologyCommand import AstrologyCommand
-from commands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
-from commands.GetCompatibilityCommand import GetCompatibilityCommand
-from commands.GetNumerologyCommand import GetNumerologyCommand
+from commands.AstrologyCommands.AstrologyCommand import AstrologyCommand
+from commands.AstrologyCommands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
+from commands.AstrologyCommands.GetCompatibilityCommand import GetCompatibilityCommand
+from commands.AstrologyCommands.GetNumerologyCommand import GetNumerologyCommand
 
 
 class TestAstrologyCommands(TestCase):

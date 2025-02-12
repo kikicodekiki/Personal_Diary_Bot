@@ -20,7 +20,7 @@ class GetNumerologyCommand(Command):
     def get_numerology(self, message, bot, db):
         """Fetches and sends the numerology results."""
         if message.text == "Go Back":
-            from commands.AstrologyCommand import AstrologyCommand # use lazy imports to prevent circular import
+            from commands.AstrologyCommands.AstrologyCommand import AstrologyCommand # use lazy imports to prevent circular import
             return AstrologyCommand().execute(bot, db, message)
         if not message.text.isdigit():
             bot.send_message(message.chat.id, "Invalid input. Please try again.")
@@ -37,5 +37,6 @@ class GetNumerologyCommand(Command):
         """Returns the user to the main menu."""
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
         markup.add(types.KeyboardButton(text="Get Astrology Reading"))
+        markup.add(types.KeyboardButton(text="Menstrual Cycle Stats")) # include menstrual cycle funcs
         bot.send_message(message.chat.id, "Would you like to do anything else?", reply_markup=markup)
 

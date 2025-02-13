@@ -1,9 +1,7 @@
 import unittest
-from unittest.mock import MagicMock, mock_open
 from commands.MenstrualCycleCommands.LogPeriodCommand import LogPeriodCommand
-from Database import Database
+from utils.Database import Database
 import sqlite3
-from datetime import datetime
 
 
 class TestLoggedPeriodDataInDatabase(unittest.TestCase):

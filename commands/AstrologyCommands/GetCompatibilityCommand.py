@@ -1,6 +1,6 @@
 from commands.base import Command
 from telebot import types
-from RapidAPIHoroscope import RapidAPIHoroscope
+from utils.RapidAPIHoroscope import RapidAPIHoroscope
 
 class GetCompatibilityCommand(Command):
     """Handles the fetching of the compatibility data."""

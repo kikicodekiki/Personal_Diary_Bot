@@ -3,7 +3,7 @@ import json
 
 conn = http.client.HTTPSConnection("horoscope-astrology.p.rapidapi.com")
 headers = {
-    'x-rapidapi-key': "KEY",
+    'x-rapidapi-key':"KEY",
     'x-rapidapi-host': "horoscope-astrology.p.rapidapi.com"
 }
 
@@ -46,13 +46,13 @@ class RapidAPIHoroscope:
         return data.get("horoscope", "Horoscope data not available.")
 
     def get_lucky_number(self):
-        """Returns the lucky number from the response."""
+        """Returns the lucky number as a string from the response."""
         data = self.__get_daily_horoscope_data()
         if data is None:
             return "Couldn't retrieve horoscope data from Rapid API. But you will have a great day!"
-        return data.get("lucky_number", "Lucky number not available.")
+        return str(data.get("lucky_number", "Lucky number not available."))
 
-    def __get_compatability_data(self, second_sign):
+    def __get_compatibility_data(self, second_sign):
         if second_sign is not None and second_sign not in self.signs:
             raise ValueError(f"Invalid sign: {second_sign}")
         try:
@@ -68,11 +68,11 @@ class RapidAPIHoroscope:
             print(e)
             return None
 
-    def get_compatability(self, second_sign):
+    def get_compatibility(self, second_sign):
         """Returns the edited text that includes the degrees of the two signs and their alignment."""
-        data = self.__get_compatability_data(second_sign)
+        data = self.__get_compatibility_data(second_sign)
         if data is None:
-            return "Couldn't retrieve compatability data from Rapid API. But you should DUMP HIM!"
+            return "Couldn't retrieve compatibility data from Rapid API. But you should DUMP HIM!"
         return data
 
     def __get_numerology_data(self):
@@ -89,8 +89,9 @@ class RapidAPIHoroscope:
             return None
 
     def get_numerology(self):
+        """Returns the numerology description from the response."""
         data = self.__get_numerology_data()
-        if data is None:
-            return "Couldn't retrieve numerology data from Rapid API. But you are a QUEEN!"
-        return data.get("desc", "Numerology data not available.")
+        if not data or "desc" not in data:
+            return "Numerology data not available."
+        return data["desc"]
 

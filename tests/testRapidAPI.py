@@ -1,5 +1,5 @@
 import unittest
-from RapidAPIHoroscope import RapidAPIHoroscope
+from utils.RapidAPIHoroscope import RapidAPIHoroscope
 from unittest.mock import patch, MagicMock
 
 class TestRapidAPI(unittest.TestCase):

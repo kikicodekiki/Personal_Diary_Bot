@@ -1,6 +1,5 @@
-from telebot import types
 from commands.base import Command
-from Database import Database
+from utils.Database import Database
 from telegram import Update
 from telegram.ext import CallbackContext
 

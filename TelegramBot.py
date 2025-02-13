@@ -1,8 +1,8 @@
 import telebot
 from telebot import types
-from Database import Database
+from utils.Database import Database
 from commands.AstrologyCommands.AstrologyCommand import AstrologyCommand
-from commands.MenstrualCycleCommands.PeriodCommand import PeriodCommand
+from commands.MenstrualCycleCommands.PeriodCommandFactory import PeriodCommandFactory
 
 
 class TelegramBot:
@@ -14,7 +14,7 @@ class TelegramBot:
         self.commands = {
             # got this idea from my dear friend, the chat bot, still have yet to implement other commands
             "Get Astrology Reading": AstrologyCommand(), # store instances of the command
-            "Menstrual Cycle Stats": PeriodCommand(),
+            "Menstrual Cycle Stats": PeriodCommandFactory(),
         }
         self.register_handlers()
 
@@ -50,6 +50,6 @@ class TelegramBot:
         self.bot.polling(none_stop=True)
 
 
-instance = TelegramBot("KEY")
+instance = TelegramBot("7499459987:AAFKYDoRCZ38luZVcqR-3-8pJduM32vKLOo")
 instance.run()
 

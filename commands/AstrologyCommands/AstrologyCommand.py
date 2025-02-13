@@ -1,6 +1,6 @@
 from telebot import types
 from commands.base import Command
-from RapidAPIHoroscope import RapidAPIHoroscope
+from utils.RapidAPIHoroscope import RapidAPIHoroscope
 from commands.AstrologyCommands.GetNumerologyCommand import GetNumerologyCommand
 from commands.AstrologyCommands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
 from commands.AstrologyCommands.GetCompatibilityCommand import GetCompatibilityCommand

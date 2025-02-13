@@ -1,6 +1,9 @@
 import unittest
 from unittest.mock import MagicMock
 from datetime import datetime
+
+import telebot
+
 from commands.MenstrualCycleCommands.LogPeriodCommand import LogPeriodCommand
 from utils.Database import Database
 

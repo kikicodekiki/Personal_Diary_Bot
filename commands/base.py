@@ -6,4 +6,4 @@ class Command(ABC):
     """Abstract base class for all bot commands."""
     @abstractmethod
     def execute(self):
-        pass
+        raise NotImplementedError('You must implement this method.')

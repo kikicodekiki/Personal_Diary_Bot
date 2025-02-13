@@ -1,5 +1,6 @@
 from telebot import types
 from commands.MenstrualCycleCommands.LogPeriodCommand import LogPeriodCommand
+from commands.MenstrualCycleCommands.PlotPeriodStatsCommand import PlotPeriodStatsCommand
 
 
 class PeriodCommandFactory:
@@ -10,6 +11,7 @@ class PeriodCommandFactory:
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         commands = {
             "Log Period": LogPeriodCommand(db),
+            "Plot Period": PlotPeriodStatsCommand(db),
         }
         for command in commands.keys():
             markup.add(types.KeyboardButton(text=command))
@@ -29,3 +31,4 @@ class PeriodCommandFactory:
             command.execute(bot, db, message)
         else:
             bot.send_message(message.chat.id, "Invalid option. Please select a valid command.")
+            self.execute(bot, db, message)

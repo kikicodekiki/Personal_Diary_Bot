@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Implement PeriodCommand-&gt; parent class for all commands related to the menstrual cycle; using the Update and CallbackContext classes to prevent manual parsing (the mistake I made in the Astrology command classes).">
+    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Implement the LogPeriodCommand and test to see if the period entry is actually stored in the database to make sure that logic works properly.">
+      <change afterPath="$PROJECT_DIR$/testLogPeriodCommand.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testLoggedPeriodDataInDatabase.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RapidAPIHoroscope.py" beforeDir="false" afterPath="$PROJECT_DIR$/RapidAPIHoroscope.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/MenstrualCycleCommands/LogPeriodCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/MenstrualCycleCommands/LogPeriodCommand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +60,7 @@
   "keyToString": {
     "Python tests.Python tests in LogPeriodCommand.py.executor": "Run",
     "Python tests.Python tests in TestAstrologyCommands.py.executor": "Run",
+    "Python tests.Python tests in testLogPeriodCommand.py.executor": "Run",
     "Python tests.Python tests in testRapidAPI.py.executor": "Run",
     "Python.GetCompatabilityCommand.executor": "Run",
     "Python.HoroscopeCommand.executor": "Run",
@@ -143,7 +145,7 @@
       <workItem from="1739337946988" duration="9418000" />
       <workItem from="1739378364109" duration="4559000" />
       <workItem from="1739384639576" duration="16996000" />
-      <workItem from="1739425290092" duration="3124000" />
+      <workItem from="1739425290092" duration="4740000" />
     </task>
     <task id="LOCAL-00001" summary="create initial backbone for the project">
       <option name="closed" value="true" />
@@ -385,14 +387,21 @@
       <option name="project" value="LOCAL" />
       <updated>1739426970455</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Implement the LogPeriodCommand and test to see if the period entry is actually stored in the database to make sure that logic works properly.">
+      <option name="closed" value="true" />
+      <created>1739428657886</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1739428657886</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rename the file to use the new API" />
     <MESSAGE value="implement get horoscope functionality" />
     <MESSAGE value="implement the compatability functionality (girl, u should really DUMP him, dont blame astrology &lt;33)" />
     <MESSAGE value="Finish API horoscope functionalities!!! *party party*" />
@@ -417,7 +426,8 @@
     <MESSAGE value="Modified the database to include the functionalities for the menstrual cycle table and started using context managers to avoid having multiple connections open at the same time" />
     <MESSAGE value="Get the program ready for the inclusion of the Menstrual Cycle functionalities." />
     <MESSAGE value="Implement PeriodCommand-&gt; parent class for all commands related to the menstrual cycle; using the Update and CallbackContext classes to prevent manual parsing (the mistake I made in the Astrology command classes)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement PeriodCommand-&gt; parent class for all commands related to the menstrual cycle; using the Update and CallbackContext classes to prevent manual parsing (the mistake I made in the Astrology command classes)." />
+    <MESSAGE value="Implement the LogPeriodCommand and test to see if the period entry is actually stored in the database to make sure that logic works properly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement the LogPeriodCommand and test to see if the period entry is actually stored in the database to make sure that logic works properly." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/diary_bot$HoroscopeCommand.coverage" NAME="HoroscopeCommand Coverage Results" MODIFIED="1739307687767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />
@@ -428,6 +438,6 @@
     <SUITE FILE_PATH="coverage/diary_bot$testRapidAPI.coverage" NAME="testRapidAPI Coverage Results" MODIFIED="1738931366585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$GetCompatabilityCommand.coverage" NAME="GetCompatabilityCommand Coverage Results" MODIFIED="1739387546396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />
     <SUITE FILE_PATH="coverage/diary_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1739382943770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1739391805575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1739429463236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

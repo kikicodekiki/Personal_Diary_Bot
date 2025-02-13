@@ -4,15 +4,16 @@ from datetime import datetime
 
 class LogPeriodCommand(PeriodCommand):
     """Command that handles the proper record of the user's menstrual cycle."""
-    def execute(self, update, context):
+    def execute(self, bot, db, message):
         """Makes a connection with the database and logs in a new period entry."""
-        user_id = update.message.chat_id
-        if not context.args:
-            update.message.reply_text("Please provide the start date (YYYY-MM-DD).")
+        user_id = message.chat.id
+        args = message.text.split()[1:] # extract arguments from message
+        if not args:
+            bot.send_message(user_id, "Please provide the start date (YYYY-MM-DD).")
             return
         try:
-            start_date = datetime.strptime(context.args[0], "%Y-%m-%d").date()
-            self.db.log_period(user_id, start_date)
-            update.message.reply_text("Period logged in successfully.")
+            start_date = datetime.strptime(args[0], "%Y-%m-%d").date()
+            db.log_period(user_id, start_date)
+            bot.send_message(user_id, "Period logged in successfully.")
         except ValueError:
-            update.message.reply_text("Please provide the start date (YYYY-MM-DD).")
+            bot.send_message(user_id, "Please provide the start date (YYYY-MM-DD).")

@@ -3,7 +3,7 @@ from unittest import TestCase
 from unittest.mock import MagicMock
 from telebot import TeleBot
 
-from Database import Database
+from utils.Database import Database
 from commands.AstrologyCommands.AstrologyCommand import AstrologyCommand
 from commands.AstrologyCommands.GetDailyHoroscopeCommand import GetDailyHoroscopeCommand
 from commands.AstrologyCommands.GetCompatibilityCommand import GetCompatibilityCommand

@@ -32,7 +32,7 @@ class TestLogPeriodCommand(unittest.TestCase):
         self.mock_message.text = "/log_period invalid-date"  # Invalid format
         self.command.execute(self.mock_bot, self.mock_db, self.mock_message)
         self.mock_db.log_period.assert_not_called()
-        self.mock_bot.send_message.assert_called_once_with(12345, "Please provide the start date (YYYY-MM-DD).")
+        self.mock_bot.send_message.assert_called_once_with(12345, "Invalid date. Please provide the start date (YYYY-MM-DD).")
 
 if __name__ == "__main__":
     unittest.main()

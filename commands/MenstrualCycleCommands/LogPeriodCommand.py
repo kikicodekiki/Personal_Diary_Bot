@@ -20,10 +20,10 @@ class LogPeriodCommand(PeriodCommand):
             start_date = datetime.strptime(date_text, "%Y-%m-%d").date()
             db.log_period(user_id, start_date)
             bot.send_message(user_id, "Period logged in successfully.")
-            self.return_to_main_menu(bot, db)
+            self.return_to_main_menu(bot, message)
         except ValueError:
             bot.send_message(user_id, "Invalid date. Please provide the start date (YYYY-MM-DD).")
-            self.return_to_main_menu(bot, db)
+            self.return_to_main_menu(bot, message)
 
     def return_to_main_menu(self, bot, message):
         """Returns the user to the main menu."""

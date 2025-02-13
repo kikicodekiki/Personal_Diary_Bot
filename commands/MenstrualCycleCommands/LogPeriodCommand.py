@@ -26,8 +26,8 @@ class LogPeriodCommand(PeriodCommand):
             self.return_to_main_menu(bot, message)
 
     def return_to_main_menu(self, bot, message):
-        """Returns the user to the main menu."""
+        """Returns the user to the Menstrual Cycle Stats menu instead of the main menu."""
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
-        markup.add(types.KeyboardButton(text="Get Astrology Reading"))
-        markup.add(types.KeyboardButton(text="Menstrual Cycle Stats")) # include the menstrual cycle button
-        bot.send_message(message.chat.id,"Would you like to do something else?", reply_markup=markup)
+        markup.add(types.KeyboardButton(text="Log Period"))
+        markup.add(types.KeyboardButton(text="Go Back"))
+        bot.send_message(message.chat.id, "What would you like to do next?", reply_markup=markup)

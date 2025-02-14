@@ -15,6 +15,7 @@ class PeriodCommand:
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
         markup.add(types.KeyboardButton(text="Get Astrology Reading"))
         markup.add(types.KeyboardButton(text="Menstrual Cycle Stats")) # include the menstrual cycle funcs
+        markup.add(types.KeyboardButton(text="Get Mood Prediction for Today"))
         bot.send_message(message.chat.id, "Would you like to do something else?", reply_markup=markup)
 
 

@@ -117,3 +117,15 @@ class Database:
         lower_bound = next_period_start - timedelta(days=std_dev)
         upper_bound = next_period_start + timedelta(days=std_dev)
         return next_period_start, lower_bound, upper_bound
+
+    def get_last_period_date(self, user_id):
+        """Fetches the last menstrual cycle log."""
+        with sqlite3.connect(self.database_name) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT start_date FROM menstrual_logs WHERE user_id=? ORDER BY start_date ASC",
+                (user_id,),
+            )
+            data = cursor.fetchall()
+        dates = [datetime.strptime(row[0], '%Y-%m-%d') for row in data]
+        return dates[-1]

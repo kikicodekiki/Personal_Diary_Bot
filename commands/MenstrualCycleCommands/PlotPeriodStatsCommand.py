@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt # thank God for numerical methods ;)
 from commands.MenstrualCycleCommands.PeriodCommand import PeriodCommand
 from telebot import types
+import os
 
 class PlotPeriodStatsCommand(PeriodCommand):
     """Command that aims at plotting the data, retrieved from the database."""
@@ -15,18 +16,20 @@ class PlotPeriodStatsCommand(PeriodCommand):
 
     def plot_period_stats(self, bot, user_id, cycle_lengths, message):
         """Plots that represent the user's period lengths."""
-        x_axis = list(range(1, len(cycle_lengths) + 1))
+        # x_axis = list(range(1, len(cycle_lengths) + 1))
         avg_cycle = np.mean(cycle_lengths)
-        plt.figure(figsize=(8, 5))  # ensure proper size for a Telegram message
-        plt.plot(x_axis, cycle_lengths, marker='o', color='red', label='Cycle Lengths')
-        plt.axhline(float(avg_cycle), linestyle='--', label=f'Average Cycle: {avg_cycle} days.')
-        plt.xlabel('Cycle Number')
-        plt.ylabel('Cycle Length (days)')
-        plt.title('Menstrual Cycle Length Trend')
+        standard_dev = np.std(cycle_lengths)
+        plt.plot(cycle_lengths, marker='o', linestyle='-', color='r', label="Cycle Lengths")
+        plt.axhline(y=avg_cycle, color='b', linestyle='--', label=f"Avg Cycle ({avg_cycle:.2f} days)")
+        plt.fill_between(range(len(cycle_lengths)), avg_cycle - standard_dev, avg_cycle + standard_dev, color='b', alpha=0.2,
+                         label="Std Dev")
+        plt.xlabel("Cycle Count")
+        plt.ylabel("Cycle Length (days)")
+        plt.title("Menstrual Cycle Length Over Time")
         plt.legend()
         plt.grid(True)
         # save the image
-        image_path = "/mnt/data/period_stats.png" # temporary file => saves in the curr environment when running the bot
+        image_path = os.path.join(os.getcwd(), "period_stats.png")
         plt.savefig(image_path)
         plt.close() # prevent memory leaks
         # send image to user

@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Fix data leak and start implementing the statistics logic of the period commands. Working on finding a way to test if the code is OK!">
-      <change afterPath="$PROJECT_DIR$/tests/testDatabaseFuncs.py" afterDir="false" />
+    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="YAY OMG THE COMMAND STARTED PLOTTING!!! The problem was in the image path">
+      <change afterPath="$PROJECT_DIR$/telegramBotWrapper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/MenstrualCycleCommands/PeriodCommandFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/MenstrualCycleCommands/PeriodCommandFactory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commands/MenstrualCycleCommands/PlotPeriodStatsCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/MenstrualCycleCommands/PlotPeriodStatsCommand.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/testPlotPeriodCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/testPlotPeriodCommand.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/telegramBot.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +156,7 @@
       <workItem from="1739425290092" duration="16720000" />
       <workItem from="1739465841513" duration="6791000" />
       <workItem from="1739487453127" duration="1567000" />
-      <workItem from="1739489065307" duration="445000" />
+      <workItem from="1739489065307" duration="2270000" />
     </task>
     <task id="LOCAL-00001" summary="create initial backbone for the project">
       <option name="closed" value="true" />
@@ -478,7 +478,31 @@
       <option name="project" value="LOCAL" />
       <updated>1739477333135</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Create a test to check if the database actually logs periods. The tests are passed so the problem must be in the implementation itself">
+      <option name="closed" value="true" />
+      <created>1739489588378</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1739489588378</updated>
+    </task>
+    <task id="LOCAL-00042" summary="YAY OMG THE COMMAND STARTED PLOTTING!!! The problem was in the image path">
+      <option name="closed" value="true" />
+      <created>1739490547940</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1739490547940</updated>
+    </task>
+    <task id="LOCAL-00043" summary="YAY OMG THE COMMAND STARTED PLOTTING!!! The problem was in the image path">
+      <option name="closed" value="true" />
+      <created>1739490609718</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1739490609718</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -496,8 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="start implementing the different astrology commands. Maybe I should implement it with the command pattern later on..." />
-    <MESSAGE value="finish implementing the different astrology commands. Still contemplating the command pattern.." />
     <MESSAGE value="Fix bug and get the program going!!! Hurray!!! I LIKE TO MOVE IT, MOVE IT!!!" />
     <MESSAGE value="Start implementing the Command Design Pattern to ensure good OOP design and better encapsulation bcz the TelegramBot class was managing too many things that he shouldn't be caring about." />
     <MESSAGE value="Have a new AstrologyCommand class that handles the retrieval of the zodiac sign and then propagates it to the astrology functionalities" />
@@ -521,7 +543,9 @@
     <MESSAGE value="Fix typo and get it working lol" />
     <MESSAGE value="Finish the LogPeriodCommand functionality" />
     <MESSAGE value="Fix data leak and start implementing the statistics logic of the period commands. Working on finding a way to test if the code is OK!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix data leak and start implementing the statistics logic of the period commands. Working on finding a way to test if the code is OK!" />
+    <MESSAGE value="Create a test to check if the database actually logs periods. The tests are passed so the problem must be in the implementation itself" />
+    <MESSAGE value="YAY OMG THE COMMAND STARTED PLOTTING!!! The problem was in the image path" />
+    <option name="LAST_COMMIT_MESSAGE" value="YAY OMG THE COMMAND STARTED PLOTTING!!! The problem was in the image path" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/diary_bot$HoroscopeCommand.coverage" NAME="HoroscopeCommand Coverage Results" MODIFIED="1739307687767" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />
@@ -532,8 +556,8 @@
     <SUITE FILE_PATH="coverage/diary_bot$TelegramBot.coverage" NAME="TelegramBot Coverage Results" MODIFIED="1739460722357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$testRapidAPI.coverage" NAME="testRapidAPI Coverage Results" MODIFIED="1738931366585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$GetCompatabilityCommand.coverage" NAME="GetCompatabilityCommand Coverage Results" MODIFIED="1739387546396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />
-    <SUITE FILE_PATH="coverage/diary_bot$telegramBot.coverage" NAME="telegramBot Coverage Results" MODIFIED="1739487969157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$telegramBot.coverage" NAME="telegramBot Coverage Results" MODIFIED="1739490917744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$main.coverage" NAME="main Coverage Results" MODIFIED="1739382943770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1739487522985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/diary_bot$.coverage" NAME=" Coverage Results" MODIFIED="1739489481980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>

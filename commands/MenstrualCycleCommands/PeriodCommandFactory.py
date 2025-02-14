@@ -25,6 +25,7 @@ class PeriodCommandFactory:
             return self.execute(bot, db, message)  # Show options again
         commands = {
             "Log Period": LogPeriodCommand(db),
+            "Plot Period": PlotPeriodStatsCommand(db), # had forgotten to add this -> hopefully, now it will work
         }
         command = commands.get(message.text)
         if command:

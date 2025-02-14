@@ -1,7 +1,7 @@
 from telebot import types
 from commands.MenstrualCycleCommands.LogPeriodCommand import LogPeriodCommand
 from commands.MenstrualCycleCommands.PlotPeriodStatsCommand import PlotPeriodStatsCommand
-
+from commands.MenstrualCycleCommands.PredictNextPeriodCommand import PredictNextPeriodCommand
 
 class PeriodCommandFactory:
     """Delegates to the other period commands."""
@@ -12,6 +12,7 @@ class PeriodCommandFactory:
         commands = {
             "Log Period": LogPeriodCommand(db),
             "Plot Period": PlotPeriodStatsCommand(db),
+            "Get Next Period Prediction": PredictNextPeriodCommand(db),
         }
         for command in commands.keys():
             markup.add(types.KeyboardButton(text=command))
@@ -26,6 +27,7 @@ class PeriodCommandFactory:
         commands = {
             "Log Period": LogPeriodCommand(db),
             "Plot Period": PlotPeriodStatsCommand(db), # had forgotten to add this -> hopefully, now it will work
+            "Get Next Period Prediction": PredictNextPeriodCommand(db),
         }
         command = commands.get(message.text)
         if command:

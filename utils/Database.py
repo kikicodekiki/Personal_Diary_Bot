@@ -1,5 +1,7 @@
 import sqlite3
-from datetime import datetime # using for the menstrual cycle logs
+from datetime import datetime, timedelta  # using for the menstrual cycle logs
+import numpy as np
+
 
 class Database:
     """A class that handles the Database operations and table."""
@@ -94,3 +96,24 @@ class Database:
         dates = [datetime.strptime(row[0], '%Y-%m-%d') for row in data]
         cycle_lengths = [(dates[i] - dates[i-1]).days for i in range(1, len(dates))]
         return cycle_lengths
+
+    def predict_next_period(self, user_id):
+        """Predicts the start date of the next period based on the last period start date and the average cycle len."""
+        with sqlite3.connect(self.database_name) as conn:
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT start_date FROM menstrual_logs WHERE user_id=? ORDER BY start_date ASC",
+                (user_id,),
+            )
+            data = cursor.fetchall()
+        dates = [datetime.strptime(row[0], '%Y-%m-%d') for row in data]
+        cycle_lengths = [(dates[i] - dates[i - 1]).days for i in range(1, len(dates))]
+        if len(cycle_lengths) < 2:
+            return "Not enough data to make a prediction."
+        avg_cycle = int(np.mean(cycle_lengths))
+        std_dev = int(np.std(cycle_lengths))
+        last_period_start = dates[-1]
+        next_period_start = last_period_start + timedelta(days=avg_cycle)
+        lower_bound = next_period_start - timedelta(days=std_dev)
+        upper_bound = next_period_start + timedelta(days=std_dev)
+        return next_period_start, lower_bound, upper_bound

@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Get the final functionality of the program going! Hurray! Did a great job!">
+    <list default="true" id="d1235444-3d21-49dd-88d0-815054633824" name="Changes" comment="Doing some finishing touches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/MenstrualCycleCommands/PeriodCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/MenstrualCycleCommands/PeriodCommand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/period_stats.png" beforeDir="false" afterPath="$PROJECT_DIR$/period_stats.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/testLogPeriodCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/testLogPeriodCommand.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/testPlotPeriodCommand.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/testPlotPeriodCommand.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/RapidAPIHoroscope.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/RapidAPIHoroscope.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,15 +160,8 @@
       <workItem from="1739516447453" duration="55000" />
       <workItem from="1739523143678" duration="4847000" />
       <workItem from="1739538945509" duration="3068000" />
-      <workItem from="1739549184992" duration="2185000" />
-    </task>
-    <task id="LOCAL-00001" summary="create initial backbone for the project">
-      <option name="closed" value="true" />
-      <created>1738876157777</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1738876157777</updated>
+      <workItem from="1739549184992" duration="2528000" />
+      <workItem from="1739551790051" duration="363000" />
     </task>
     <task id="LOCAL-00002" summary="implement part of the horoscope api usage and find ways to parse the data">
       <option name="closed" value="true" />
@@ -559,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739543184131</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Doing some finishing touches">
+      <option name="closed" value="true" />
+      <created>1739551655534</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1739551655534</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -577,7 +573,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finally get the code running but the check compatability command is still non responsive; go back functionality is ready though! thank you, chatGPT!" />
     <MESSAGE value="Fix typo that was not allowing the code to run properly. Finish implementing all of the Astrology related functionalities. Moving onto the PeriodTracker class" />
     <MESSAGE value="Create tests for the astrology commands (ngl, used help from the web and from my hubby - chatGPT), but essentially mocking to see what happens. 5/5 tests passed" />
     <MESSAGE value="Finish everything surrounding the Astrological part of the bot =&gt; next up: periiod tracking!" />
@@ -602,10 +597,11 @@
     <MESSAGE value="Add the return_to_main_menu function to base class to avoid repeating code logic. Start implementing the MoodPrediction functionality" />
     <MESSAGE value="Determine the cycle phase" />
     <MESSAGE value="Get the final functionality of the program going! Hurray!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get the final functionality of the program going! Hurray!" />
+    <MESSAGE value="Doing some finishing touches" />
+    <option name="LAST_COMMIT_MESSAGE" value="Doing some finishing touches" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/diary_bot$telegramBotWrapper.coverage" NAME="telegramBotWrapper Coverage Results" MODIFIED="1739543826355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/diary_bot$telegramBotWrapper.coverage" NAME="telegramBotWrapper Coverage Results" MODIFIED="1739551986154" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$horoscope.coverage" NAME="horoscope Coverage Results" MODIFIED="1738881840420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$testRapidAPI.coverage" NAME="testRapidAPI Coverage Results" MODIFIED="1738931366585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/diary_bot$GetCompatabilityCommand.coverage" NAME="GetCompatabilityCommand Coverage Results" MODIFIED="1739387546396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/commands" />

@@ -36,14 +36,3 @@ class PlotPeriodStatsCommand(PeriodCommand):
         with open(image_path, "rb") as image_file:
             bot.send_photo(user_id, photo=image_file, caption="Here is your period chart")
         self.return_to_main_menu(bot, message)
-
-    # def return_to_main_menu(self, bot,message):
-    #     """Returns to the main menu."""
-    #     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
-    #     markup.add(types.KeyboardButton(text="Get Astrology Reading"))
-    #     markup.add(types.KeyboardButton(text="Menstrual Cycle Stats")) # include the menstrual cycle funcs
-    #     bot.send_message(message.chat.id, "Would you like to do something else?", reply_markup=markup)
-
-
-
-

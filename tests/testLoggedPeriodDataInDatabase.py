@@ -26,7 +26,7 @@ class TestLoggedPeriodDataInDatabase(unittest.TestCase):
     def test_period_log_insertion_into_database(self):
         """Check if the period entry is stored in the database."""
         user_id = 12345
-        start_date = "2023-10-01" # send string, not datetime object
+        start_date = "2023-10-01" # send string not datetime object
         # log the period
         self.mock_database.log_period(user_id, start_date)
         with sqlite3.connect("test_diary.db") as connection:

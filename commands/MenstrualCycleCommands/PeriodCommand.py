@@ -18,4 +18,3 @@ class PeriodCommand:
         markup.add(types.KeyboardButton(text="Get Mood Prediction for Today"))
         bot.send_message(message.chat.id, "Would you like to do something else?", reply_markup=markup)
 
-

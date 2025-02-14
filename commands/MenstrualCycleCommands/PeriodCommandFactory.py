@@ -23,7 +23,7 @@ class PeriodCommandFactory:
     def delegate_command(self, message, bot, db):
         """Delegates the request to the appropriate period command."""
         if message.text == "Go Back":
-            return self.execute(bot, db, message)  # Show options again
+            return self.execute(bot, db, message)  # show options again
         commands = {
             "Log Period": LogPeriodCommand(db),
             "Plot Period": PlotPeriodStatsCommand(db), # had forgotten to add this -> hopefully, now it will work

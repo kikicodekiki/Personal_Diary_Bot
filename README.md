@@ -27,4 +27,7 @@ the bot produces different insightful info that helps the user's day-to-day emot
    cycle phases - *menstrual*, *follicular*, *ovulatory* and *luteal* as well as the user's sign.
 
 ## 🎨 Visualization Example
-This is how the bot looks when used:
+This is how the bot looks when used (you can find more in the 'assets' folder):
+<img src="assets/IMG_9633.PNG" alt="Period data plotting" width="30%">
+<img src="assets/IMG_9631.PNG" alt="Daily Horoscope" width="30%">
+<img src="assets/IMG_9634.PNG" alt="Mood Prediction" width="30%">

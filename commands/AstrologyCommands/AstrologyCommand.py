@@ -33,12 +33,12 @@ class AstrologyCommand(Command):
         bot.send_message(message.chat.id, "Please, choose a command:", reply_markup=markup)
         bot.register_next_step_handler(message, lambda msg: self.delegate_command(msg, bot, db, zodiac_sign))
 
-    def get_main_menu(self):
-        """Returns the main menu."""
-        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        markup.add(types.KeyboardButton(text="Get Astrology Reading")) # add all functionalities from the main function
-        markup.add(types.KeyboardButton(text="Menstrual Cycle Stats"))
-        return markup
+    # def get_main_menu(self):
+    #     """Returns the main menu."""
+    #     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    #     markup.add(types.KeyboardButton(text="Get Astrology Reading")) # add all functionalities from the main function
+    #     markup.add(types.KeyboardButton(text="Menstrual Cycle Stats"))
+    #     return markup
 
     def delegate_command(self, message, bot, db, zodiac_sign):
         """Delegates the request to the appropriate command."""

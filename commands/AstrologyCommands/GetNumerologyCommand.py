@@ -33,10 +33,4 @@ class GetNumerologyCommand(Command):
         # return to main menu
         self.return_to_main_menu(bot, message)
 
-    # def return_to_main_menu(self, bot, message):
-    #     """Returns the user to the main menu."""
-    #     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
-    #     markup.add(types.KeyboardButton(text="Get Astrology Reading"))
-    #     markup.add(types.KeyboardButton(text="Menstrual Cycle Stats")) # include menstrual cycle funcs
-    #     bot.send_message(message.chat.id, "Would you like to do anything else?", reply_markup=markup)
 
